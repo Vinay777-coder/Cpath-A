@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import pdf from 'pdf-parse'
 import { roadmapsDatabase } from '@/lib/roadmaps-data'
 
-const GROQ_API_KEY = process.env.GROQ_API_KEY || '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'
+const GROQ_API_KEY = process.env.GROQ_API_KEY 
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions'
 
 interface EnhancedResumeAnalysis {
