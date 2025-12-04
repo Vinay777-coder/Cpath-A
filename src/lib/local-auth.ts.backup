@@ -1,0 +1,151 @@
+// Temporary local authentication for testing
+// This bypasses Clerk when keys are invalid
+
+export interface LocalUser {
+  id: string
+  email: string
+  name: string
+}
+
+class LocalAuthManager {
+  private user: LocalUser | null = null
+  private isAuthenticated: boolean = false
+
+  constructor() {
+    if (typeof window !== 'undefined') {
+      const savedAuth = localStorage.getItem('local_auth_user')
+      if (savedAuth) {
+        try {
+          this.user = JSON.parse(savedAuth)
+          this.isAuthenticated = true
+        } catch (e) {
+          this.clearAuth()
+        }
+      }
+    }
+  }
+
+  signIn(email: string, password: string): Promise<{ success: boolean; user?: LocalUser; error?: string }> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        // Get registered users from localStorage
+        const registeredUsers = this.getRegisteredUsers()
+        
+        // Find user by email
+        const foundUser = registeredUsers.find(u => u.email === email)
+        
+        if (!foundUser) {
+          resolve({ 
+            success: false, 
+            error: 'No account found with this email. Please sign up first.'
+          })
+          return
+        }
+        
+        // Validate password
+        if (foundUser.password !== password) {
+          resolve({ 
+            success: false, 
+            error: 'Invalid password. Please try again.'
+          })
+          return
+        }
+        
+        // Success - create session
+        const user: LocalUser = {
+          id: foundUser.id,
+          email: foundUser.email,
+          name: foundUser.name
+        }
+        
+        this.user = user
+        this.isAuthenticated = true
+        
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('local_auth_user', JSON.stringify(user))
+        }
+        
+        resolve({ success: true, user })
+      }, 500) // Simulate network delay
+          })
+        }
+      }, 1000) // Simulate API delay
+    })
+  }
+
+  signUp(email: string, password: string): Promise<{ success: boolean; user?: LocalUser; error?: string }> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        if (email && password && password.length >= 6) {
+          const user: LocalUser = {
+            id: 'local_' + Date.now(),
+            email: email,
+            name: email.split('@')[0]
+          }
+          
+          this.user = user
+          this.isAuthenticated = true
+          
+          if (typeof window !== 'undefined') {
+            localStorage.setItem('local_auth_user', JSON.stringify(user))
+          }
+          
+          resolve({ success: true, user })
+        } else {
+          resolve({ 
+            success: false, 
+            error: password.length < 6 ? 'Password must be at least 6 characters' : 'Invalid email'
+          })
+        }
+      }, 1000)
+    })
+  }
+
+  signOut(): Promise<void> {
+    return new Promise((resolve) => {
+      this.clearAuth()
+      resolve()
+    })
+  }
+
+  getCurrentUser(): LocalUser | null {
+    return this.user
+  }
+
+  isSignedIn(): boolean {
+    return this.isAuthenticated
+  }
+
+  private clearAuth() {
+    this.user = null
+    this.isAuthenticated = false
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('local_auth_user')
+    }
+  }
+}
+
+export const localAuth = new LocalAuthManager()
+
+// Helper function to check if we should use local auth
+export function shouldUseLocalAuth(): boolean {
+  const clerkKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+  
+  // Force local auth if no key, placeholder, or known invalid keys
+  if (!clerkKey || 
+      clerkKey === 'your-clerk-publishable-key' || 
+      clerkKey === 'pk_test_placeholder' ||
+      clerkKey === 'pk_test_Y2hhbXBpb24tYmFzcy04Ni5jbGVyay5hY2NvdW50cy5kZXYk') {
+    return true
+  }
+  
+  // Also check if we're in development and want to force local auth
+  if (typeof window !== 'undefined') {
+    const forceLocal = localStorage.getItem('force_local_auth')
+    if (forceLocal === 'true') {
+      return true
+    }
+  }
+  
+  return false
+}

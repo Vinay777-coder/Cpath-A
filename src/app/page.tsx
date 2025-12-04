@@ -1,0 +1,557 @@
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Navbar } from '@/components/ui/navbar'
+import { Footer } from '@/components/ui/footer'
+import { ConfigNotification } from '@/components/ui/config-notification'
+import { ArrowRight, Target, BookOpen, Brain, Users, Star, Check, Zap, Globe, Shield, TrendingUp, Sparkles, Rocket, Award, Code, Database, Layout, Smartphone, Monitor, Server } from 'lucide-react'
+
+export const dynamic = 'force-dynamic'
+
+export default function HomePage() {
+  return (
+    <div className="min-h-screen">
+      {/* Configuration Notification */}
+      <ConfigNotification />
+      
+      {/* Navigation */}
+      <Navbar showAuth={true} />
+
+      {/* Hero Section */}
+      <div className="relative overflow-hidden hero-section">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-pink-600/5"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl animate-float animate-delay-200"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-pink-400/10 rounded-full blur-3xl animate-float animate-delay-500"></div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32">
+          <div className="text-center max-w-5xl mx-auto">
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/50 text-sm font-medium text-blue-800 mb-8 animate-fade-in-scale">
+              <Sparkles className="w-4 h-4 mr-2" />
+              🚀 AI-Powered Career Guidance Platform
+            </div>
+            
+            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight animate-slide-in-up">
+              <span className="text-gray-900">Accelerate Your</span>
+              <br />
+              <span className="text-gradient animate-gradient-shift">Tech Career</span>
+              <br />
+              <span className="text-gray-900">with AI</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed animate-slide-in-up animate-delay-200">
+              Get personalized roadmaps, AI-powered resume analysis, and expert guidance 
+              to land your dream job in tech. Join thousands of developers already advancing their careers.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-slide-in-up animate-delay-300">
+              <Link href="/login">
+                <Button size="lg" className="text-lg px-10 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 shadow-2xl hover:shadow-blue-500/25 button-glow">
+                  <Rocket className="mr-3 h-5 w-5" />
+                  Start Your Journey
+                  <ArrowRight className="ml-3 h-5 w-5" />
+                </Button>
+              </Link>
+              <Button size="lg" variant="outline" className="text-lg px-10 py-6 border-2 border-gray-200 hover:border-gray-300 bg-white/80 backdrop-blur-sm hover:bg-white shadow-xl">
+                <Star className="mr-3 h-5 w-5" />
+                Watch Demo
+              </Button>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto animate-slide-in-up animate-delay-500">
+              <div className="flex flex-col items-center p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-white/20 shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-3">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-2xl font-bold text-gray-900">10,000+</div>
+                <div className="text-sm text-gray-600">Active Users</div>
+              </div>
+              <div className="flex flex-col items-center p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-white/20 shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-3">
+                  <Star className="w-6 h-6 text-white fill-current" />
+                </div>
+                <div className="text-2xl font-bold text-gray-900">4.9/5</div>
+                <div className="text-sm text-gray-600">Rating</div>
+              </div>
+              <div className="flex flex-col items-center p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-white/20 shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-3">
+                  <Shield className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-2xl font-bold text-gray-900">100%</div>
+                <div className="text-sm text-gray-600">Secure</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Features Section */}
+      <section id="features" className="section-padding bg-white/30 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/50 text-sm font-medium text-blue-800 mb-8">
+              <Target className="w-4 h-4 mr-2" />
+              Powerful Features
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
+              Everything You Need to
+              <span className="text-gradient block">Succeed</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive tools and AI-powered insights to accelerate your career growth
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            <Card className="feature-card group">
+              <CardHeader>
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Target className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-2xl mb-3">Personalized Roadmaps</CardTitle>
+                <CardDescription className="text-gray-600 text-base leading-relaxed">
+                  AI-curated learning paths for Backend, Frontend, Full Stack, and Data Science careers with step-by-step guidance
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="feature-card group">
+              <CardHeader>
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <TrendingUp className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-2xl mb-3">Progress Tracking</CardTitle>
+                <CardDescription className="text-gray-600 text-base leading-relaxed">
+                  Visual dashboards with completion rates, streak tracking, and achievement badges to keep you motivated
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="feature-card group">
+              <CardHeader>
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-violet-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Brain className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-2xl mb-3">AI Resume Analysis</CardTitle>
+                <CardDescription className="text-gray-600 text-base leading-relaxed">
+                  Get instant ATS scores, detailed feedback, and personalized recommendations powered by advanced AI
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="feature-card group">
+              <CardHeader>
+                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Users className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-2xl mb-3">AI Career Assistant</CardTitle>
+                <CardDescription className="text-gray-600 text-base leading-relaxed">
+                  24/7 intelligent chat support for career guidance, interview prep, and skill development advice
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="feature-card group">
+              <CardHeader>
+                <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <BookOpen className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-2xl mb-3">Curated Resources</CardTitle>
+                <CardDescription className="text-gray-600 text-base leading-relaxed">
+                  Access to courses, tutorials, and documentation tailored to your learning path
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="feature-card group">
+              <CardHeader>
+                <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Globe className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-2xl mb-3">Global Community</CardTitle>
+                <CardDescription className="text-gray-600 text-base leading-relaxed">
+                  Connect with developers worldwide, share experiences, and learn from industry experts
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Rotating UI/UX Cards Animation */}
+      <section className="section-padding bg-gradient-to-r from-indigo-50 via-white to-cyan-50 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-indigo-50 to-cyan-50 border border-indigo-200/50 text-sm font-medium text-indigo-800 mb-8">
+              <Monitor className="w-4 h-4 mr-2" />
+              Interactive Experience
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Beautiful UI/UX
+              <span className="text-gradient block">Design Cards</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Experience our interactive design showcase with rotating technology cards
+            </p>
+          </div>
+
+          {/* Rotating Cards Container - Right to Left Horizontal */}
+          <div className="relative h-64 w-full">
+            <div className="rotating-cards-container">
+              {/* Card 1 - React */}
+              <div className="rotating-card card-1">
+                <Card className="w-72 h-44 bg-gradient-to-br from-blue-500 to-blue-600 text-white border-0 shadow-2xl transform-gpu">
+                  <CardHeader className="p-6">
+                    <div className="flex items-center space-x-4">
+                      <Code className="h-12 w-12" />
+                      <div>
+                        <CardTitle className="text-2xl font-bold">React</CardTitle>
+                        <CardDescription className="text-blue-100 text-base">Frontend Library</CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </Card>
+              </div>
+
+              {/* Card 2 - Node.js */}
+              <div className="rotating-card card-2">
+                <Card className="w-72 h-44 bg-gradient-to-br from-green-500 to-green-600 text-white border-0 shadow-2xl transform-gpu">
+                  <CardHeader className="p-6">
+                    <div className="flex items-center space-x-4">
+                      <Server className="h-12 w-12" />
+                      <div>
+                        <CardTitle className="text-2xl font-bold">Node.js</CardTitle>
+                        <CardDescription className="text-green-100 text-base">Backend Runtime</CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </Card>
+              </div>
+
+              {/* Card 3 - Database */}
+              <div className="rotating-card card-3">
+                <Card className="w-72 h-44 bg-gradient-to-br from-purple-500 to-purple-600 text-white border-0 shadow-2xl transform-gpu">
+                  <CardHeader className="p-6">
+                    <div className="flex items-center space-x-4">
+                      <Database className="h-12 w-12" />
+                      <div>
+                        <CardTitle className="text-2xl font-bold">Database</CardTitle>
+                        <CardDescription className="text-purple-100 text-base">Data Storage</CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </Card>
+              </div>
+
+              {/* Card 4 - Mobile */}
+              <div className="rotating-card card-4">
+                <Card className="w-72 h-44 bg-gradient-to-br from-pink-500 to-pink-600 text-white border-0 shadow-2xl transform-gpu">
+                  <CardHeader className="p-6">
+                    <div className="flex items-center space-x-4">
+                      <Smartphone className="h-12 w-12" />
+                      <div>
+                        <CardTitle className="text-2xl font-bold">Mobile</CardTitle>
+                        <CardDescription className="text-pink-100 text-base">App Development</CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Guides Section */}
+      <section id="guides" className="section-padding bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-float animate-delay-300"></div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/50 text-sm font-medium text-blue-800 mb-8">
+              <BookOpen className="w-4 h-4 mr-2" />
+              Learning Guides
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
+              Comprehensive
+              <span className="text-gradient block">Learning Paths</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Curated roadmaps and guides to help you master the skills needed for your dream tech career
+            </p>
+          </div>
+
+          {/* Role-based Roadmaps */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Role-based Roadmaps</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Link href="/dashboard" className="group">
+                <Card className="feature-card hover:shadow-xl transition-all duration-300 cursor-pointer">
+                  <CardHeader className="text-center p-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Layout className="h-8 w-8 text-white" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-gray-900">Frontend Developer</CardTitle>
+                    <CardDescription className="text-sm text-gray-600">
+                      Master React, Vue, Angular and modern frontend technologies
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link href="/dashboard" className="group">
+                <Card className="feature-card hover:shadow-xl transition-all duration-300 cursor-pointer">
+                  <CardHeader className="text-center p-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Server className="h-8 w-8 text-white" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-gray-900">Backend Developer</CardTitle>
+                    <CardDescription className="text-sm text-gray-600">
+                      Learn Node.js, Python, Java and server-side technologies
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link href="/dashboard" className="group">
+                <Card className="feature-card hover:shadow-xl transition-all duration-300 cursor-pointer">
+                  <CardHeader className="text-center p-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Monitor className="h-8 w-8 text-white" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-gray-900">Full Stack Developer</CardTitle>
+                    <CardDescription className="text-sm text-gray-600">
+                      Complete roadmap covering both frontend and backend skills
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link href="/dashboard" className="group">
+                <Card className="feature-card hover:shadow-xl transition-all duration-300 cursor-pointer">
+                  <CardHeader className="text-center p-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Brain className="h-8 w-8 text-white" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-gray-900">AI Engineer</CardTitle>
+                    <CardDescription className="text-sm text-gray-600">
+                      Dive into machine learning, AI, and data science
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+            </div>
+          </div>
+
+          {/* Skill-based Roadmaps */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Skill-based Roadmaps</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {[
+                { name: 'JavaScript', color: 'from-yellow-500 to-orange-500' },
+                { name: 'Python', color: 'from-blue-500 to-green-500' },
+                { name: 'React', color: 'from-cyan-500 to-blue-500' },
+                { name: 'Node.js', color: 'from-green-500 to-emerald-500' },
+                { name: 'TypeScript', color: 'from-blue-600 to-indigo-600' },
+                { name: 'Docker', color: 'from-blue-400 to-cyan-400' },
+                { name: 'AWS', color: 'from-orange-500 to-yellow-500' },
+                { name: 'Git', color: 'from-orange-600 to-red-600' },
+                { name: 'SQL', color: 'from-indigo-500 to-purple-500' },
+                { name: 'Kubernetes', color: 'from-blue-500 to-purple-500' },
+                { name: 'GraphQL', color: 'from-pink-500 to-rose-500' },
+                { name: 'MongoDB', color: 'from-green-600 to-teal-600' },
+              ].map((skill) => (
+                <Link key={skill.name} href="/dashboard" className="group">
+                  <div className="p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group-hover:scale-105">
+                    <div className={`w-8 h-8 bg-gradient-to-r ${skill.color} rounded-lg flex items-center justify-center mx-auto mb-2`}>
+                      <Code className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="text-center">
+                      <div className="text-sm font-semibold text-gray-900">{skill.name}</div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Popular Guides */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Popular Guides</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  title: 'How to become a Frontend Developer in 2024',
+                  description: 'Complete guide with roadmap, skills, and resources',
+                  icon: Layout,
+                  color: 'from-blue-500 to-cyan-500'
+                },
+                {
+                  title: 'Backend Development Best Practices',
+                  description: 'Learn scalable architecture and clean code principles',
+                  icon: Server,
+                  color: 'from-green-500 to-emerald-500'
+                },
+                {
+                  title: 'JavaScript Interview Questions 2024',
+                  description: 'Top 50 questions with detailed explanations',
+                  icon: Code,
+                  color: 'from-yellow-500 to-orange-500'
+                },
+                {
+                  title: 'React vs Vue vs Angular',
+                  description: 'Comprehensive comparison to choose the right framework',
+                  icon: Monitor,
+                  color: 'from-purple-500 to-violet-500'
+                },
+                {
+                  title: 'Database Design Fundamentals',
+                  description: 'Learn SQL, NoSQL, and database optimization',
+                  icon: Database,
+                  color: 'from-indigo-500 to-purple-500'
+                },
+                {
+                  title: 'Mobile App Development Guide',
+                  description: 'Native vs Cross-platform development roadmap',
+                  icon: Smartphone,
+                  color: 'from-pink-500 to-rose-500'
+                },
+              ].map((guide, index) => {
+                const Icon = guide.icon
+                return (
+                  <Link key={index} href="/dashboard" className="group">
+                    <Card className="feature-card hover:shadow-xl transition-all duration-300 cursor-pointer h-full">
+                      <CardHeader className="p-6">
+                        <div className={`w-12 h-12 bg-gradient-to-r ${guide.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                          <Icon className="h-6 w-6 text-white" />
+                        </div>
+                        <CardTitle className="text-lg font-semibold text-gray-900 mb-3">{guide.title}</CardTitle>
+                        <CardDescription className="text-gray-600">
+                          {guide.description}
+                        </CardDescription>
+                        <div className="flex items-center text-blue-600 text-sm font-medium mt-4 group-hover:text-blue-700">
+                          Read Guide
+                          <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </CardHeader>
+                    </Card>
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* CTA to access guides */}
+          <div className="text-center">
+            <div className="max-w-2xl mx-auto">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Ready to Start Learning?</h3>
+              <p className="text-lg text-gray-600 mb-8">
+                Sign in to access our complete collection of roadmaps, guides, and learning resources.
+              </p>
+              <Link href="/dashboard">
+                <Button size="lg" className="text-lg px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 shadow-xl hover:shadow-blue-500/25">
+                  <BookOpen className="mr-3 h-5 w-5" />
+                  Access All Guides
+                  <ArrowRight className="ml-3 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-white/10 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div className="group">
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Users className="w-8 h-8 text-white" />
+              </div>
+              <div className="text-4xl font-bold mb-2 text-shadow">10K+</div>
+              <div className="text-blue-100 font-medium">Active Users</div>
+            </div>
+            <div className="group">
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Brain className="w-8 h-8 text-white" />
+              </div>
+              <div className="text-4xl font-bold mb-2 text-shadow">50K+</div>
+              <div className="text-blue-100 font-medium">Resumes Analyzed</div>
+            </div>
+            <div className="group">
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Award className="w-8 h-8 text-white" />
+              </div>
+              <div className="text-4xl font-bold mb-2 text-shadow">95%</div>
+              <div className="text-blue-100 font-medium">Success Rate</div>
+            </div>
+            <div className="group">
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Zap className="w-8 h-8 text-white" />
+              </div>
+              <div className="text-4xl font-bold mb-2 text-shadow">24/7</div>
+              <div className="text-blue-100 font-medium">AI Support</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section-padding bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-200/20 to-purple-200/20 rounded-full blur-3xl"></div>
+        </div>
+        <div className="relative max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/50 text-sm font-medium text-blue-800 mb-8">
+            <Rocket className="w-4 h-4 mr-2" />
+            Ready to Get Started?
+          </div>
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
+            Transform Your
+            <span className="text-gradient block">Career Today</span>
+          </h2>
+          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+            Join thousands of developers who have already accelerated their careers with CareerPath AI. 
+            Start your journey to success today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+            <Link href="/login">
+              <Button size="lg" className="text-lg px-10 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 shadow-2xl hover:shadow-blue-500/25 button-glow">
+                <Rocket className="mr-3 h-5 w-5" />
+                Get Started
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+          <div className="flex items-center justify-center space-x-6 text-sm text-gray-500">
+            <div className="flex items-center">
+              <Check className="w-4 h-4 mr-2 text-green-500" />
+              <span>No setup required</span>
+            </div>
+            <div className="flex items-center">
+              <Check className="w-4 h-4 mr-2 text-green-500" />
+              <span>Start immediately</span>
+            </div>
+            <div className="flex items-center">
+              <Check className="w-4 h-4 mr-2 text-green-500" />
+              <span>All features included</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <Footer />
+    </div>
+  )
+}
