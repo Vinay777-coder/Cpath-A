@@ -12,7 +12,6 @@ All required environment variables are properly configured in `.env.local`:
 - ✅ CLERK_SECRET_KEY: Configured
 
 ### AI Integration (Groq/JARVIS)
-- ✅ GROQ_API_KEY: Configured (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)
 - ✅ DEFAULT_AI_PROVIDER: Set to 'groq'
 
 ### Application

@@ -2,7 +2,7 @@
 const https = require('https');
 
 // The API key from your .env.local file
-const API_KEY = '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';
+const API_KEY = 'process.env.GROQ_API_KEY';
 
 const data = JSON.stringify({
   model: 'llama-3.1-8b-instant',

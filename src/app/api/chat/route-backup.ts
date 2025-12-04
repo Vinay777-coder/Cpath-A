@@ -1,7 +1,7 @@
  import { NextRequest, NextResponse } from 'next/server'
 
 // Temporarily set API key directly to test
-const GROQ_API_KEY = process.env.GROQ_API_KEY || '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'
+const GROQ_API_KEY = process.env.GROQ_API_KEY 
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions'
 
 interface ChatMessage {
