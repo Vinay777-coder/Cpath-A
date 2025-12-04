@@ -66,3 +66,8 @@ coverage/
 .next
 .env
 !.env.example
+
+# Local environment files
+.env
+.env.*
+
