@@ -1,0 +1,68 @@
+﻿
+# Build directories and caches
+/.next/
+.next/
+.next/**
+node_modules/
+node_modules
+node_modules/**
+dist/
+out/
+build/
+coverage/
+.clerk/
+.next/
+# Build cache files
+.next/cache/**
+.next/cache/
+.next/cache/*
+.next/server/**
+.next/static/**
+
+# Webpack cache files
+.next/cache/webpack/**
+.next/cache/swc/**
+.next/cache/swc/*
+
+# Development cache
+.next/cache/tsbuildinfo/**
+.next/cache/.previewinfo
+.next/cache/.rscinfo
+.next/cache/.tsbuildinfo
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+*.logs
+
+# Environment and configuration
+.env
+.env.local
+.env.*.local
+.env.production.local
+.env.development.local
+.env.test.local
+.clerk/
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/*
+.idea/*
+*.sublime-workspace
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+.next
+.env
+!.env.example
