@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '../../components/ui/badge'
 import { Input } from '@/components/ui/input'
-import { useUser } from '@/contexts/auth-context'
+import { useAuth } from '@/contexts/auth-context'
 import { 
   Users, 
   MessageSquare, 
@@ -323,7 +323,7 @@ const getBadgeIcon = (badge: string) => {
 }
 
 export default function CommunityPage() {
-  const { user } = useUser()
+  const { user } = useAuth()
   const [activeTab, setActiveTab] = useState('forums')
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')

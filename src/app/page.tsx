@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Navbar } from '@/components/ui/navbar'
@@ -54,27 +55,29 @@ export default function HomePage() {
                   <ArrowRight className="ml-3 h-5 w-5" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="text-lg px-10 py-6 border-2 border-gray-200 hover:border-gray-300 bg-white/80 backdrop-blur-sm hover:bg-white shadow-xl">
-                <Star className="mr-3 h-5 w-5" />
-                Watch Demo
-              </Button>
+              <a href="#features">
+                <Button size="lg" variant="outline" className="text-lg px-10 py-6 border-2 border-gray-200 hover:border-gray-300 bg-white/80 backdrop-blur-sm hover:bg-white shadow-xl">
+                  <Target className="mr-3 h-5 w-5" />
+                  View Features
+                </Button>
+              </a>
             </div>
 
             {/* Trust Indicators */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto animate-slide-in-up animate-delay-500">
               <div className="flex flex-col items-center p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-white/20 shadow-lg">
                 <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-3">
-                  <Users className="w-6 h-6 text-white" />
+                  <Code className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900">10,000+</div>
-                <div className="text-sm text-gray-600">Active Users</div>
+                <div className="text-2xl font-bold text-gray-900">50+ Skills</div>
+                <div className="text-sm text-gray-600">Tech Roadmaps</div>
               </div>
               <div className="flex flex-col items-center p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-white/20 shadow-lg">
                 <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-3">
-                  <Star className="w-6 h-6 text-white fill-current" />
+                  <Brain className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900">4.9/5</div>
-                <div className="text-sm text-gray-600">Rating</div>
+                <div className="text-2xl font-bold text-gray-900">AI-Powered</div>
+                <div className="text-sm text-gray-600">Career Guidance</div>
               </div>
               <div className="flex flex-col items-center p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-white/20 shadow-lg">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-3">
@@ -121,11 +124,11 @@ export default function HomePage() {
             <Card className="feature-card group">
               <CardHeader>
                 <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <TrendingUp className="h-8 w-8 text-white" />
+                  <Monitor className="h-8 w-8 text-white" />
                 </div>
-                <CardTitle className="text-2xl mb-3">Progress Tracking</CardTitle>
+                <CardTitle className="text-2xl mb-3">Dashboard</CardTitle>
                 <CardDescription className="text-gray-600 text-base leading-relaxed">
-                  Visual dashboards with completion rates, streak tracking, and achievement badges to keep you motivated
+                  Centralized hub for managing your career journey with real-time insights and personalized recommendations
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -157,11 +160,11 @@ export default function HomePage() {
             <Card className="feature-card group">
               <CardHeader>
                 <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <BookOpen className="h-8 w-8 text-white" />
+                  <Zap className="h-8 w-8 text-white" />
                 </div>
-                <CardTitle className="text-2xl mb-3">Curated Resources</CardTitle>
+                <CardTitle className="text-2xl mb-3">Project Ideas</CardTitle>
                 <CardDescription className="text-gray-600 text-base leading-relaxed">
-                  Access to courses, tutorials, and documentation tailored to your learning path
+                  Discover practical project ideas to build your portfolio and showcase your skills to potential employers
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -169,11 +172,11 @@ export default function HomePage() {
             <Card className="feature-card group">
               <CardHeader>
                 <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Globe className="h-8 w-8 text-white" />
+                  <BookOpen className="h-8 w-8 text-white" />
                 </div>
-                <CardTitle className="text-2xl mb-3">Global Community</CardTitle>
+                <CardTitle className="text-2xl mb-3">Enhanced Guides</CardTitle>
                 <CardDescription className="text-gray-600 text-base leading-relaxed">
-                  Connect with developers worldwide, share experiences, and learn from industry experts
+                  Comprehensive step-by-step guides covering technologies, best practices, and career development strategies
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -190,73 +193,68 @@ export default function HomePage() {
               Interactive Experience
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Beautiful UI/UX
-              <span className="text-gradient block">Design Cards</span>
+              Tech Stack
+              <span className="text-gradient block">Showcase</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Experience our interactive design showcase with rotating technology cards
+              Explore the powerful technologies and tools we use to deliver exceptional career guidance
             </p>
           </div>
 
           {/* Rotating Cards Container - Right to Left Horizontal */}
           <div className="relative h-64 w-full">
             <div className="rotating-cards-container">
-              {/* Card 1 - React */}
+              {/* Card 1 */}
               <div className="rotating-card card-1">
-                <Card className="w-72 h-44 bg-gradient-to-br from-blue-500 to-blue-600 text-white border-0 shadow-2xl transform-gpu">
-                  <CardHeader className="p-6">
-                    <div className="flex items-center space-x-4">
-                      <Code className="h-12 w-12" />
-                      <div>
-                        <CardTitle className="text-2xl font-bold">React</CardTitle>
-                        <CardDescription className="text-blue-100 text-base">Frontend Library</CardDescription>
-                      </div>
-                    </div>
+                <Card className="w-72 h-44 bg-gradient-to-br from-orange-500 to-red-500 text-white border-0 shadow-2xl transform-gpu">
+                  <CardHeader className="p-6 flex flex-col items-center justify-center h-full">
+                    <Zap className="h-12 w-12 mb-3" />
+                    <CardTitle className="text-2xl font-bold text-center">Project Ideas</CardTitle>
+                    <CardDescription className="text-white/90 text-sm text-center mt-2">Build Your Portfolio</CardDescription>
                   </CardHeader>
                 </Card>
               </div>
 
-              {/* Card 2 - Node.js */}
+              {/* Card 2 */}
               <div className="rotating-card card-2">
-                <Card className="w-72 h-44 bg-gradient-to-br from-green-500 to-green-600 text-white border-0 shadow-2xl transform-gpu">
-                  <CardHeader className="p-6">
-                    <div className="flex items-center space-x-4">
-                      <Server className="h-12 w-12" />
-                      <div>
-                        <CardTitle className="text-2xl font-bold">Node.js</CardTitle>
-                        <CardDescription className="text-green-100 text-base">Backend Runtime</CardDescription>
-                      </div>
-                    </div>
+                <Card className="w-72 h-44 bg-gradient-to-br from-blue-500 to-indigo-600 text-white border-0 shadow-2xl transform-gpu">
+                  <CardHeader className="p-6 flex flex-col items-center justify-center h-full">
+                    <Target className="h-12 w-12 mb-3" />
+                    <CardTitle className="text-2xl font-bold text-center">Developer Roadmaps</CardTitle>
+                    <CardDescription className="text-white/90 text-sm text-center mt-2">Guided Learning Paths</CardDescription>
                   </CardHeader>
                 </Card>
               </div>
 
-              {/* Card 3 - Database */}
+              {/* Card 3 */}
               <div className="rotating-card card-3">
-                <Card className="w-72 h-44 bg-gradient-to-br from-purple-500 to-purple-600 text-white border-0 shadow-2xl transform-gpu">
-                  <CardHeader className="p-6">
-                    <div className="flex items-center space-x-4">
-                      <Database className="h-12 w-12" />
-                      <div>
-                        <CardTitle className="text-2xl font-bold">Database</CardTitle>
-                        <CardDescription className="text-purple-100 text-base">Data Storage</CardDescription>
-                      </div>
-                    </div>
+                <Card className="w-72 h-44 bg-gradient-to-br from-purple-500 to-pink-600 text-white border-0 shadow-2xl transform-gpu">
+                  <CardHeader className="p-6 flex flex-col items-center justify-center h-full">
+                    <Brain className="h-12 w-12 mb-3" />
+                    <CardTitle className="text-2xl font-bold text-center">AI Resume Analysis</CardTitle>
+                    <CardDescription className="text-white/90 text-sm text-center mt-2">Instant Feedback</CardDescription>
                   </CardHeader>
                 </Card>
               </div>
 
-              {/* Card 4 - Mobile */}
+              {/* Card 4 */}
               <div className="rotating-card card-4">
-                <Card className="w-72 h-44 bg-gradient-to-br from-pink-500 to-pink-600 text-white border-0 shadow-2xl transform-gpu">
-                  <CardHeader className="p-6">
-                    <div className="flex items-center space-x-4">
-                      <Smartphone className="h-12 w-12" />
-                      <div>
-                        <CardTitle className="text-2xl font-bold">Mobile</CardTitle>
-                        <CardDescription className="text-pink-100 text-base">App Development</CardDescription>
-                      </div>
-                    </div>
+                <Card className="w-72 h-44 bg-gradient-to-br from-green-500 to-emerald-600 text-white border-0 shadow-2xl transform-gpu">
+                  <CardHeader className="p-6 flex flex-col items-center justify-center h-full">
+                    <Sparkles className="h-12 w-12 mb-3" />
+                    <CardTitle className="text-2xl font-bold text-center">Career Suggestions</CardTitle>
+                    <CardDescription className="text-white/90 text-sm text-center mt-2">Personalized Guidance</CardDescription>
+                  </CardHeader>
+                </Card>
+              </div>
+
+              {/* Card 5 */}
+              <div className="rotating-card card-5">
+                <Card className="w-72 h-44 bg-gradient-to-br from-teal-500 to-cyan-600 text-white border-0 shadow-2xl transform-gpu">
+                  <CardHeader className="p-6 flex flex-col items-center justify-center h-full">
+                    <BookOpen className="h-12 w-12 mb-3" />
+                    <CardTitle className="text-2xl font-bold text-center">Learning Guides</CardTitle>
+                    <CardDescription className="text-white/90 text-sm text-center mt-2">Comprehensive Resources</CardDescription>
                   </CardHeader>
                 </Card>
               </div>

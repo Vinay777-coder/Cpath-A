@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '../../components/ui/badge'
 import { Input } from '@/components/ui/input'
-import { useUser } from '@/contexts/auth-context'
+import { useAuth } from '@/contexts/auth-context'
 import React from 'react'
 import { 
   Code, 
@@ -207,7 +207,7 @@ interface UserChallengeProgress {
 }
 
 export default function ChallengesPage() {
-  const { user } = useUser()
+  const { user } = useAuth()
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all')
   const [selectedType, setSelectedType] = useState<string>('all')

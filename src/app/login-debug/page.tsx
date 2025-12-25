@@ -1,5 +1,7 @@
 'use client'
 
+export const dynamic = 'force-dynamic'
+
 import { useAuth } from '@/contexts/auth-context'
 import { localAuth } from '@/lib/local-auth'
 import { useState, useEffect } from 'react'

@@ -623,7 +623,7 @@ html {
 
 .rotating-card {
   position: absolute;
-  animation: slideRightToLeft 14s linear infinite;
+  animation: slideRightToLeft 17.5s linear infinite;
   transform: translateY(-50%);
   top: 50%;
 }
@@ -642,6 +642,10 @@ html {
 
 .card-4 {
   animation-delay: -10.5s;
+}
+
+.card-5 {
+  animation-delay: -14s;
 }
 
 @keyframes slideRightToLeft {
@@ -667,10 +671,10 @@ html {
 
 /* Hover effects for rotating cards */
 .rotating-card:hover {
-  animation-play-state: paused;
   z-index: 10;
-  transform: translateY(-50%) scale(1.2);
+  transform: translateY(-50%) scale(1.05);
   box-shadow: 0 35px 70px -12px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Line clamp utilities */

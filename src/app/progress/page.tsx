@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '../../components/ui/badge'
-import { useUser } from '@/contexts/auth-context'
+import { useAuth } from '@/contexts/auth-context'
 import { 
   Trophy,
   Target,
@@ -261,7 +261,7 @@ const priorityColors: Record<string, string> = {
 }
 
 export default function ProgressTrackingPage() {
-  const { user } = useUser()
+  const { user } = useAuth()
   const [activeTab, setActiveTab] = useState('overview')
   const [celebratingMilestone, setCelebratingMilestone] = useState<any>(null)
   const [showNewGoalModal, setShowNewGoalModal] = useState(false)

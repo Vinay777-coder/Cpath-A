@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '../../components/ui/badge'
 import { Input } from '@/components/ui/input'
-import { useUser } from '@/contexts/auth-context'
+import { useAuth } from '@/contexts/auth-context'
 import { 
   Building,
   TrendingUp,
@@ -360,7 +360,7 @@ const difficultyColors: Record<string, string> = {
 }
 
 export default function IndustryIntegrationPage() {
-  const { user } = useUser()
+  const { user } = useAuth()
   const [activeTab, setActiveTab] = useState('market')
   const [selectedCompany, setSelectedCompany] = useState<any>(null)
   const [searchQuery, setSearchQuery] = useState('')
