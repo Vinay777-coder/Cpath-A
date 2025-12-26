@@ -1,9 +1,11 @@
 import Groq from 'groq-sdk'
 
-// Initialize Groq client for JARVIS
-const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY
-})
+// Lazy initialization of Groq client - only when needed at runtime
+function getGroqClient() {
+  return new Groq({
+    apiKey: process.env.GROQ_API_KEY
+  })
+}
 
 // Main JARVIS chat function using Groq API with llama3-70b-8192
 export async function chatWithAI(message: string, conversationHistory: any[] = [], userContext: any = {}) {
@@ -17,6 +19,7 @@ export async function chatWithAI(message: string, conversationHistory: any[] = [
   }
 
   try {
+    const groq = getGroqClient()
     const completion = await groq.chat.completions.create({
       messages: [
         {
@@ -99,6 +102,7 @@ export async function analyzeResumeWithAI(resumeText: string) {
   }
 
   try {
+    const groq = getGroqClient()
     const completion = await groq.chat.completions.create({
       messages: [
         {
@@ -193,6 +197,7 @@ export async function generateCareerSuggestions(userProfile: any) {
 
   try {
     const profileText = JSON.stringify(userProfile, null, 2)
+    const groq = getGroqClient()
     
     const completion = await groq.chat.completions.create({
       messages: [
@@ -285,6 +290,3 @@ Always respond in JSON format:
 export async function analyzeResume(resumeText: string) {
   return analyzeResumeWithAI(resumeText)
 }
-
-// Export the Groq client for advanced usage
-export { groq }
